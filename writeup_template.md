@@ -9,11 +9,11 @@ The project repository on the Udacity github has links to two prepreared data se
 
 Car Images | Not Car Images
 -----------|---------------
-[car1](examples/car1.png) | [notCar1](examples/notCar1.png)
+![car1](examples/car1.png) | ![notCar1](examples/notCar1.png)
 -----------|---------------
-[car2](examples/car2.png) | [notCar2](examples/notCar2.png)
+![car2](examples/car2.png) | ![notCar2](examples/notCar2.png)
 -----------|---------------
-[car3](examples/car3.png) | [notCar3](examples/notCar3.png)
+![car3](examples/car3.png) | ![notCar3](examples/notCar3.png)
 
 
 [Rubric Points](https://review.udacity.com/#!/rubrics/513/view)
