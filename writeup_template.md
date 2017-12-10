@@ -7,13 +7,13 @@ The aim of this project is to build a pipeline to detect cars from windshield mo
 
 The project repository on the Udacity github has links to two prepreared data sets. The first containing [images of vehicles](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip) and the second conatining images of [of no vehicles](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip).
 
-Car Images | Not Car Images
------------|---------------
-![car1](examples/car1.png) |![notCar1](examples/notCar1.png)
------------|---------------
-![car2](examples/car2.png) |![notCar2](examples/notCar2.png)
------------|---------------
-![car3](examples/car3.png) |![notCar3](examples/notCar3.png)
+Car Images | 
+-----------|---------------|---------------|---------------|---------------|
+![car1](examples/car1.png) |![car2](examples/car2.png) |![car3](examples/car3.png) |![car4](examples/car1.png) |![car4](examples/car2.png) 
+
+Not Car Images | 
+-----------|---------------|---------------|---------------|---------------|
+![noCar1](examples/noCar1.png) |![noCar2](examples/noCar2.png) |![noCar3](examples/noCar3.png) |![noCar4](examples/noCar1.png) |![noCar4](examples/noCar2.png) 
 
 
 [Rubric Points](https://review.udacity.com/#!/rubrics/513/view)
