@@ -51,3 +51,6 @@ To further smooth my detections when applying the pipeline to a video I created 
 Here is the video working running on the test video.
 
 [![TestVideo](http://img.youtube.com/vi/rgRsV-CJ78Q/0.jpg)](http://www.youtube.com/watch?v=rgRsV-CJ78Q)
+
+### Discussion
+The feature vetor I created is far too long and as such it takes a long time to run as a pipeline. While it is reasonable at detecting vehicles it is not capable of running even close to real time. I will revist my classifier and see if I can reduce its size whilst maintaining its accuracy. A number of people have had success using nueral network object detectors to run this project, and as these utilise GPU's will run faster. There are GPU's for autombiles coming on to the market however for current technology my understanding is that CPU's still rule the roost in commercial vehicles.
