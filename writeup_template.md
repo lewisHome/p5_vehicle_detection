@@ -25,6 +25,8 @@ On loading the data I generated a small data subset in section 4. Then in sectio
 
 From sections 9 to 15 I look at the results for RGB, HSV, LUV, HLS, LAB, YUV, and YCrCb.  In the second and third channels of the accumulated colour histogram for the YCrCb colour space there is a prominent feature which appears in the 'car' data set but not the 'notCar' data set. Meanwhile the first channel of the colour space provides a very clear image of the car and is therefore useful for building a histogram of orientated gradient feature.
 
+![Colour Space Explore](examples/ColourSpaceExplore.jpg)
+
 ### Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
 In section 17 I used a liner support vector machine to train my classifier. A linear classifier runs faster and is less prone to over fitting than alternative SVM classifiers. To completment the HOG classifier which I ran on the first channel of the YCrCB colour channel I also used a spatial bining feature extractor with binning dimensions of (32,32) and I used a colour histogram feature on the second two channels of the YCrCb colour space.
