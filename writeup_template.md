@@ -37,7 +37,7 @@ In section 16 I define a sliding windows search function. The function first loo
 
 There is an overlap of 75% between windows.
 
-![WindowImage](examples/window_image.jpg)
+![WindowImage](examples/bboxes.jpg)
 ### Show some examples of test images to demonstrate how your pipeline is working. How did you optimize the performance of your classifier?
 
 To remove false positives from my detections I apply a heatmap to each image classified. A heatmap is a function which only draws bounding boxes in areas where multiple detections exist.
