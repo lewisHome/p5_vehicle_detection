@@ -47,4 +47,5 @@ To further smooth my detections when applying the pipeline to a video I created 
 ### Video
 
 Here is the video working running on the test video.
-![TestVideo](http://img.youtube.com/vi/rgRsV-CJ78Q/0.jpg)](http://www.youtube.com/watch?v=rgRsV-CJ78Q)
+
+[![TestVideo](http://img.youtube.com/vi/rgRsV-CJ78Q/0.jpg)](http://www.youtube.com/watch?v=rgRsV-CJ78Q)
