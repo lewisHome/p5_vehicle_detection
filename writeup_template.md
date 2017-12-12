@@ -29,7 +29,9 @@ From sections 9 to 15 I look at the results for RGB, HSV, LUV, HLS, LAB, YUV, an
 
 ### Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-In section 17 I used a liner support vector machine to train my classifier. A linear classifier runs faster and is less prone to over fitting than alternative SVM classifiers. To completment the HOG classifier which I ran on the first channel of the YCrCB colour channel I also used a spatial bining feature extractor with binning dimensions of (32,32) and I used a colour histogram feature on the second two channels of the YCrCb colour space.
+In section 17 I used a liner support vector machine to train my classifier. A linear classifier runs faster and is less prone to over fitting than alternative SVM classifiers. I used 9 HOG orientations - I found increasing this value did not increase the accuracy of my classifier but made it take longfer to run. Likewise I found increasing the cells per block above 2 did not have a noticable increase in performance.
+
+To completment the HOG classifier which I ran on the first channel of the YCrCB colour channel I also used a spatial bining feature extractor with binning dimensions of (32,32) and I used a colour histogram feature on the second two channels of the YCrCb colour space.
 
 This results in a feature vector with a length of 11236, this is quite long and with more time could be refined however it achieves a training accuracy of ~98% on the test set.
 
@@ -52,5 +54,12 @@ Here is the video working running on the test video.
 
 [![TestVideo](http://img.youtube.com/vi/rgRsV-CJ78Q/0.jpg)](http://www.youtube.com/watch?v=rgRsV-CJ78Q)
 
+Here is the pipeline working on the full project video.
+
+[![TestVideo](http://img.youtube.com/vi/_YuTSDjQO0I/0.jpg)](http://www.youtube.com/watch?v=_YuTSDjQO0I)
+
+
 ### Discussion
-The feature vetor I created is far too long and as such it takes a long time to run as a pipeline. While it is reasonable at detecting vehicles it is not capable of running even close to real time. I will revist my classifier and see if I can reduce its size whilst maintaining its accuracy. A number of people have had success using nueral network object detectors to run this project, and as these utilise GPU's will run faster. There are GPU's for autombiles coming on to the market however for current technology my understanding is that CPU's still rule the roost in commercial vehicles.
+The feature vector I created is far too long and as such it takes a long time to run as a pipeline. While it is reasonable at detecting vehicles it is not capable of running even close to real time. I will revist my classifier and see if I can reduce its size whilst maintaining its accuracy. Also the bounding boxes though detecting cars currentlyu do a poor job of fitting the box around the whole vehicle, potentially I could solve this by modifying my hot box parameters and using more training data.
+
+A number of people have had success using nueral network object detectors to run this project, and as these utilise GPU's will run faster. There are GPU's for autombiles coming on to the market however for current technology my understanding is that CPU's still rule the roost in commercial vehicles.
