@@ -56,8 +56,7 @@ Here is the video working running on the test video.
 
 Here is the pipeline working on the full project video.
 
-[![TestVideo](http://img.youtube.com/vi/_YuTSDjQO0I/0.jpg)](http://www.youtube.com/watch?v=_YuTSDjQO0I)
-
+[![TestVideo](http://img.youtube.com/vi/OqoQp2siMg0/0.jpg)](http://www.youtube.com/watch?v=OqoQp2siMg0)
 
 ### Discussion
 The feature vector I created is far too long and as such it takes a long time to run as a pipeline. While it is reasonable at detecting vehicles it is not capable of running even close to real time. I will revist my classifier and see if I can reduce its size whilst maintaining its accuracy. Also the bounding boxes though detecting cars currentlyu do a poor job of fitting the box around the whole vehicle, potentially I could solve this by modifying my hot box parameters and using more training data.
