@@ -29,7 +29,9 @@ From sections 9 to 15 I look at the results for RGB, HSV, LUV, HLS, LAB, YUV, an
 
 ### Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-In section 17 I used a liner support vector machine to train my classifier. A linear classifier runs faster and is less prone to over fitting than alternative SVM classifiers. I used 9 HOG orientations - I found increasing this value did not increase the accuracy of my classifier but made it take longfer to run. Likewise I found increasing the cells per block above 2 did not have a noticable increase in performance.
+In section 17 I used a liner support vector machine to train my classifier. A linear classifier runs faster and is less prone to over fitting than alternative SVM classifiers. I also modified my C parameter default of 1.0 to C=0.001, this results in a smoother boundary and reduces the training accuracy but it also helps prevent overfitting. 
+
+I used 9 HOG orientations - I found increasing this value did not increase the accuracy of my classifier but made it take longer to run. Likewise I found increasing the cells per block above 2 did not have a noticable increase in performance. I tried a number of different values for HOG pixels per cell, from 2,4,6, and 8 I settled on 8 as this gave good performance without overfitting.
 
 To completment the HOG classifier which I ran on the first channel of the YCrCB colour channel I also used a spatial bining feature extractor with binning dimensions of (32,32) and I used a colour histogram feature on the second two channels of the YCrCb colour space.
 
@@ -39,14 +41,14 @@ This results in a feature vector with a length of 11236, this is quite long and 
 
 In section 16 I define a sliding windows search function. The function first looks at small windows around the middle of the image. It the loops to look at increasingly large windows in the lower half of the image. This is to account for the fact that cars are on the bottom half of the image and cars which are closer appear larger.
 
-There is an overlap of 75% between windows.
+I intially started with a window overlap of 75%. I found that incrementally increasing this slowed down the pipeline but increased the reliability of the classifier. In the end I used an overlap of 85%. This results in a large number fo detections for each car and so allows me to use a larger filter later in the pipeline to remove false positives.
 
 ![WindowImage](examples/bboxes.jpg)
 ### Show some examples of test images to demonstrate how your pipeline is working. How did you optimize the performance of your classifier?
 
 To remove false positives from my detections I apply a heatmap to each image classified. A heatmap is a function which only draws bounding boxes in areas where multiple detections exist.
 
-To further smooth my detections when applying the pipeline to a video I created a data class in section 23 which stores the heatmap for the last 10 frames.
+When applying the pipeline to a video I created a data class in section 23 which stores the heatmap for the last 30 frames and a bounding box is only drawn if over 40 detections exist in all of the 30 frames.
 
 ### Video
 
@@ -59,6 +61,8 @@ Here is the pipeline working on the full project video.
 [![TestVideo](http://img.youtube.com/vi/OqoQp2siMg0/0.jpg)](http://www.youtube.com/watch?v=OqoQp2siMg0)
 
 ### Discussion
-The feature vector I created is far too long and as such it takes a long time to run as a pipeline. While it is reasonable at detecting vehicles it is not capable of running even close to real time. I will revist my classifier and see if I can reduce its size whilst maintaining its accuracy. Also the bounding boxes though detecting cars currentlyu do a poor job of fitting the box around the whole vehicle, potentially I could solve this by modifying my hot box parameters and using more training data.
+The feature vector I created is far too long and as such it takes a long time to run as a pipeline. While it is reasonable at detecting vehicles it is not capable of running even close to real time. I will revist my classifier and see if I can reduce its size whilst maintaining its accuracy. Another huge gain in speed can be achieved by only extracting HOG features once per frame. Also the bounding boxes though detecting cars currently do a poor job of fitting the box around the whole vehicle, potentially I could solve this by modifying my hot box parameters and using more training data.
 
 A number of people have had success using nueral network object detectors to run this project, and as these utilise GPU's will run faster. There are GPU's for autombiles coming on to the market however for current technology my understanding is that CPU's still rule the roost in commercial vehicles.
+
+Over the break I want to write code to run project 4 and project 5 concurrently and when I do this I will also try to improve the speed performance of my vehicle detection pipeline.
